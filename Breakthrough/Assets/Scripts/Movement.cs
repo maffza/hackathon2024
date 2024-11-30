@@ -1,6 +1,5 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -50,8 +49,8 @@ public class Movement : MonoBehaviour
 
         HandleMovement(); 
         Jump();
-        CheckInstantFall();
-        ApplyBounds();
+
+        checkInstantFall();
     }
 
     private void Update()
@@ -80,7 +79,7 @@ public class Movement : MonoBehaviour
         transform.Translate(movement);
     }
 
-    private void CheckInstantFall()
+    private void checkInstantFall()
     {
         if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.Space)) {
             if(rb.linearVelocityY > 0.001f)
@@ -125,20 +124,5 @@ public class Movement : MonoBehaviour
     public Vector3 GetPositon()
     {
         return transform.position;
-    }
-
-    private void ApplyBounds() 
-    {
-        Vector3 position = transform.position;
-
-        if (position.x > 8.5f)
-            transform.position = new Vector3(8.5f, position.y, position.z);
-        else if (position.x < -8.5f)
-            transform.position = new Vector3(-8.5f, position.y, position.z);
-
-        if (position.y > 4.4f)
-            transform.position = new Vector3(position.x, 4.4f, position.z);
-        else if (position.y < -4.4f)
-            transform.position = new Vector3(position.x, -4.4f, position.z);
     }
 }
