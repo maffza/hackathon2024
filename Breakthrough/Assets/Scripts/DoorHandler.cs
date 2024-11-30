@@ -22,10 +22,6 @@ public class DoorHandler : MonoBehaviour
         {
             animator.SetTrigger("OpenDoor");
         }
-        else
-        {
-            animator.SetTrigger("CloseDoor");
-        }
     }
 
     // Update is called once per frame
