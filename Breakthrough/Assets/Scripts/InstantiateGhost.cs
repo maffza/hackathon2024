@@ -3,92 +3,72 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ReplayPlayerMovement : MonoBehaviour {
-    public PlayerPositionTracker positionTracker;
     public GameObject ghostPrefab;
-    public float averageSpeed = 5f;
+    public float averageSpeed = 5f; 
 
-    private List<(Vector2 position, float duration)> recordedPositions;
-    private int currentIndex = 0;
-    private float timeSpentAtCurrentPosition = 0f;
-
-    private GameObject ghostObject;
-    private bool isReplaying = false;
-
-    private Vector2 currentVelocity; // Przechowuje prêdkoœæ dla SmoothDamp
+    private List<List<Vector2>> ghostPaths = new List<List<Vector2>>();
+    private List<GameObject> ghosts = new List<GameObject>(); 
+    private List<Vector2> currentPath = new List<Vector2>(); 
+    private bool isReplaying = false; 
+    private Vector2 currentVelocity; 
 
     void Update() {
-        // Rozpocznij odtwarzanie po wciœniêciu klawisza K
-        if (Input.GetKeyDown(KeyCode.K)) {
-            // Jeœli duch ju¿ istnieje, usuñ go
-            if (ghostObject != null) {
-                Destroy(ghostObject);
-            }
-
-            // Pobierz listê zapisanych pozycji
-            recordedPositions = positionTracker.getPositionsList();
-
-            if (recordedPositions == null || recordedPositions.Count == 0) {
-                Debug.LogError("Brak zapisanych pozycji do odtworzenia!");
-                return;
-            }
-
-            // Utwórz ducha w pierwszej pozycji
-            ghostObject = Instantiate(ghostPrefab, recordedPositions[0].position, Quaternion.identity);
-
-            isReplaying = true;
-            ghostObject.SetActive(true);
-            currentIndex = 0;
-            timeSpentAtCurrentPosition = 0f;
+        
+        if (!isReplaying && (currentPath.Count == 0 || currentPath[currentPath.Count - 1] != (Vector2)transform.position)) {
+            currentPath.Add(transform.position);
         }
 
-        // Odtwarzanie ruchu ducha
-        if (isReplaying) {
-            if (currentIndex >= recordedPositions.Count - 1) return;
+       
+        if (Input.GetKeyDown(KeyCode.K)) {
+            RespawnPlayer(); 
+            StartGhostReplay(); 
+        }
 
-            Vector2 startPosition = recordedPositions[currentIndex].position;
-            Vector2 endPosition = recordedPositions[currentIndex + 1].position;
+        UpdateGhosts();
+    }
 
-            // Oblicz dystans i czas ruchu
-            float distance = Vector2.Distance(startPosition, endPosition);
-            if (distance == 0f) {
-                currentIndex++;
-                return;
+    private void RespawnPlayer() {
+        transform.position = new Vector3(0, 0, transform.position.z);
+        Debug.Log("Gracz zosta³ przeniesiony na pocz¹tek mapy.");
+    }
+
+    private void StartGhostReplay() {
+        if (currentPath.Count > 0) {
+            List<Vector2> newPath = new List<Vector2>(currentPath);
+            ghostPaths.Add(newPath);
+            currentPath.Clear(); 
+        }
+
+        if (ghostPaths.Count > 0) {
+            Vector2 spawnPosition = ghostPaths[ghostPaths.Count - 1][0];
+            GameObject newGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
+            ghosts.Add(newGhost);
+        }
+    }
+    private void UpdateGhosts() {
+        for (int i = 0; i < ghosts.Count; i++) {
+            GameObject ghost = ghosts[i];
+            if (ghost == null) continue;
+
+            List<Vector2> path = ghostPaths[i];
+            if (path.Count == 0) continue;
+
+            Vector2 currentPos = ghost.transform.position;
+            Vector2 targetPos = path[0];
+
+            if (Vector2.Distance(currentPos, targetPos) < 0.01f) {
+                path.RemoveAt(0);
+                continue;
             }
 
-            float timeToMove = distance / averageSpeed;
-            if (timeToMove <= 0f) {
-                Debug.LogError("Czas ruchu wynosi 0. SprawdŸ averageSpeed.");
-                return;
-            }
+            Vector2 interpolatedPosition = Vector2.SmoothDamp(
+                currentPos,
+                targetPos,
+                ref currentVelocity,
+                averageSpeed * Time.deltaTime
+            );
 
-            // Aktualizacja czasu spêdzonego w bie¿¹cej pozycji
-            timeSpentAtCurrentPosition += Time.deltaTime;
-
-            // Przejœcie do nastêpnego punktu, jeœli czas siê skoñczy³
-            if (timeSpentAtCurrentPosition >= timeToMove) {
-                currentIndex++;
-                timeSpentAtCurrentPosition = 0f;
-                return;
-            }
-
-            if (currentIndex < recordedPositions.Count - 1) {
-                Vector2 targetPosition = recordedPositions[currentIndex + 1].position;
-
-                // Stabilizacja interpolacji: u¿yj SmoothDamp
-                Vector2 interpolatedPosition = Vector2.SmoothDamp(
-                    new Vector2(ghostObject.transform.position.x, ghostObject.transform.position.y),
-                    targetPosition,
-                    ref currentVelocity,
-                    timeToMove
-                );
-
-                // Optymalizacja: Jeœli ruch jest pionowy, ignoruj zmiany w osi X
-                if (Mathf.Abs(startPosition.x - endPosition.x) < 0.01f) {
-                    ghostObject.transform.position = new Vector3(startPosition.x, interpolatedPosition.y, 0);
-                } else {
-                    ghostObject.transform.position = new Vector3(interpolatedPosition.x, interpolatedPosition.y, 0);
-                }
-            }
+            ghost.transform.position = new Vector3(interpolatedPosition.x, interpolatedPosition.y, ghost.transform.position.z);
         }
     }
 }
