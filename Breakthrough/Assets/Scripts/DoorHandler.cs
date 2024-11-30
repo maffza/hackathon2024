@@ -3,7 +3,11 @@ using UnityEngine;
 public class DoorHandler : MonoBehaviour
 {
     private Animator animator;
+
+    [SerializeField]
     private bool isOpen = false;
+
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,6 +16,11 @@ public class DoorHandler : MonoBehaviour
         if (animator == null)
         {
             Debug.LogError("Animator is missing on this object.");
+        }
+
+        if (isOpen)
+        {
+            animator.SetTrigger("OpenDoor");
         }
     }
 

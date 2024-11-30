@@ -139,15 +139,21 @@ public class Movement : MonoBehaviour
     {
         Vector3 position = transform.position;
 
-        if (position.x > 8.5f)
-            transform.position = new Vector3(8.5f, position.y, position.z);
-        else if (position.x < -8.5f)
-            transform.position = new Vector3(-8.5f, position.y, position.z);
+        if (position.x > 7.2f)
+            transform.position = new Vector3(7.2f, position.y, position.z);
+        else if (position.x < -7.2f)
+            transform.position = new Vector3(-7.2f, position.y, position.z);
 
-        if (position.y > 4.4f)
-            transform.position = new Vector3(position.x, 4.4f, position.z);
-        else if (position.y < -4.4f)
-            transform.position = new Vector3(position.x, -4.4f, position.z);
+        if (position.y > 3.8f)
+        {
+            transform.position = new Vector3(position.x, 3.8f, position.z);
+            rb.linearVelocityY = 0f;
+        }
+        else if (position.y < -3.8f)
+        {
+            transform.position = new Vector3(position.x, -3.8f, position.z);
+            rb.linearVelocityY = 0f;
+        }
     }
 
     public float GetVelocityY()
