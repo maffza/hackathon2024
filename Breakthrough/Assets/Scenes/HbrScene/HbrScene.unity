@@ -280,13 +280,8 @@ GameObject:
   - component: {fileID: 39168316}
   - component: {fileID: 39168315}
   - component: {fileID: 39168320}
-<<<<<<< Updated upstream
   - component: {fileID: 39168322}
   - component: {fileID: 39168321}
-=======
-  - component: {fileID: 39168321}
-  - component: {fileID: 39168322}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -493,40 +488,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
-<<<<<<< Updated upstream
 --- !u!114 &39168321
 MonoBehaviour:
-=======
---- !u!95 &39168321
-Animator:
-  serializedVersion: 7
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39168314}
   m_Enabled: 1
-<<<<<<< Updated upstream
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e76a02e126fb35c4cb887ec44a84f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 82f6d9b095358ca4a991eb1e1c8f586f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
->>>>>>> Stashed changes
 --- !u!114 &39168322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -536,18 +509,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 39168314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 293512a361d79844dba88af722f171ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   positionTracker: {fileID: 39168321}
   ghostPrefab: {fileID: 8549483232201820381, guid: ad4e32e4fefa3d44586802f7ab9b29e4, type: 3}
   averageSpeed: 5
-=======
-  m_Script: {fileID: 11500000, guid: 2a74becce8ec28c44a1c96adfaff306e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
->>>>>>> Stashed changes
 --- !u!1 &1374925451
 GameObject:
   m_ObjectHideFlags: 0
