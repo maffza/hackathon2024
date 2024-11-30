@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
@@ -11,13 +12,16 @@ public class Movement : MonoBehaviour
     [SerializeField]
     private float gravity = 2f;
 
-    private bool isJumping = false; 
     private Rigidbody2D rb;
     private Collider2D floorDetectCol;
 
     [SerializeField]
     private float jumpCollideWindowSec = 0.2f;
     private float jumpTimer = 0f;
+
+    [SerializeField]
+    private float jumpCooldownTime = 0.5f;
+    private float jumpCooldown = 0f;
 
     [SerializeField]
     private float coyoteBaseTime = 0.2f;
@@ -36,17 +40,26 @@ public class Movement : MonoBehaviour
         floorDetectCol = transform.GetComponentInChildren<BoxCollider2D>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        jumpTimer = Mathf.Clamp(jumpTimer - Time.deltaTime, 0, jumpCollideWindowSec);
-        coyoteTimer = Mathf.Clamp(coyoteTimer - Time.deltaTime, 0, coyoteBaseTime);
+        jumpTimer = Mathf.Clamp(jumpTimer - Time.fixedDeltaTime, 0, jumpCollideWindowSec);
+        coyoteTimer = Mathf.Clamp(coyoteTimer - Time.fixedDeltaTime, 0, coyoteBaseTime);
+        jumpCooldown = Mathf.Clamp(jumpCooldown - Time.fixedDeltaTime, 0, jumpCooldownTime);
 
-        Debug.Log(coyoteTimer);
+        // Debug.Log(coyoteTimer);
 
         HandleMovement(); 
         Jump();
+        CheckInstantFall();
+        ApplyBounds();
+    }
 
-        checkInstantFall();
+    private void Update()
+    {
+        if (JumpInputPress())
+        {
+            jumpTimer = jumpCollideWindowSec;
+        }
     }
 
     private void HandleMovement()
@@ -67,9 +80,8 @@ public class Movement : MonoBehaviour
         transform.Translate(movement);
     }
 
-    private void checkInstantFall()
+    private void CheckInstantFall()
     {
-        //zmiana skali grawitacji przy puszczeniu klawisza skoku
         if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.Space)) {
             if(rb.linearVelocityY > 0.001f)
             {
@@ -80,27 +92,12 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        if (JumpInputPress())
+        if (coyoteTimer > 0 && JumpInputHold() && jumpTimer > 0 && jumpCooldown <= 0)
         {
-            jumpTimer = jumpCollideWindowSec;
-        }
-        //tutaj
-
-
-        if (!isJumping && JumpInputHold() && jumpTimer > 0)
-        {
+            rb.linearVelocityY = 0f;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isJumping = true;
             coyoteTimer = 0;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.contacts[0].normal.y > 0.5f)
-        {
-            coyoteTimer = coyoteBaseTime;
-            isJumping = false;
+            jumpCooldown = jumpCooldownTime;
         }
     }
 
@@ -118,5 +115,30 @@ public class Movement : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    public void FloorDetected()
+    {
+        coyoteTimer = coyoteBaseTime;
+    }
+
+    public Vector3 GetPositon()
+    {
+        return transform.position;
+    }
+
+    private void ApplyBounds() 
+    {
+        Vector3 position = transform.position;
+
+        if (position.x > 8.5f)
+            transform.position = new Vector3(8.5f, position.y, position.z);
+        else if (position.x < -8.5f)
+            transform.position = new Vector3(-8.5f, position.y, position.z);
+
+        if (position.y > 4.4f)
+            transform.position = new Vector3(position.x, 4.4f, position.z);
+        else if (position.y < -4.4f)
+            transform.position = new Vector3(position.x, -4.4f, position.z);
     }
 }
