@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-<<<<<<< HEAD
   tags: []
-=======
-  tags:
-  - PlayerFloorCollider
-  - PlayerCollider
->>>>>>> origin/main
   layers:
   - Default
   - TransparentFX
@@ -19,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - Front Objects
   - 
-  - Player
   - 
-  - Back Objects
+  - 
+  - 
+  - 
   - 
   - 
   - 
