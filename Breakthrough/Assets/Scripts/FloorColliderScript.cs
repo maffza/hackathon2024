@@ -11,7 +11,6 @@ public class FloorColliderScript : MonoBehaviour
             Debug.LogWarning("movement script not set", this);
 
         offset = transform.position - movementScript.GetPositon();
-        Debug.Log(offset);
     }
 
     private void Update()
