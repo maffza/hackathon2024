@@ -13,7 +13,6 @@ public class Movement : MonoBehaviour
     private float gravity = 2f;
 
     private Rigidbody2D rb;
-    private Collider2D floorDetectCol;
 
     [SerializeField]
     private float jumpCollideWindowSec = 0.2f;
@@ -27,6 +26,10 @@ public class Movement : MonoBehaviour
     private float coyoteBaseTime = 0.2f;
     private float coyoteTimer = 0f;
 
+    //used for animation getter
+    public float HorizontalInputData { get; private set; } = 0f;
+    public bool OnGround { get; private set; } = false;
+
 
     void Start()
     {
@@ -36,8 +39,6 @@ public class Movement : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D is missing on this object.");
         }
-
-        floorDetectCol = transform.GetComponentInChildren<BoxCollider2D>();
     }
 
     void FixedUpdate()
@@ -62,21 +63,27 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        OnGround = false;
+    }
+
     private void HandleMovement()
     {
         float horizontalInput = 0;
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            horizontalInput = -1f;
+            horizontalInput -= 1f;
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            horizontalInput = 1f;
+            horizontalInput += 1f;
         }
 
+        HorizontalInputData = horizontalInput;
 
-        Vector2 movement = new Vector2(horizontalInput, 0).normalized * speed * Time.deltaTime;
+        Vector2 movement = speed * Time.deltaTime * new Vector2(horizontalInput, 0).normalized;
         transform.Translate(movement);
     }
 
@@ -120,6 +127,7 @@ public class Movement : MonoBehaviour
     public void FloorDetected()
     {
         coyoteTimer = coyoteBaseTime;
+        OnGround = true;
     }
 
     public Vector3 GetPositon()
@@ -140,5 +148,10 @@ public class Movement : MonoBehaviour
             transform.position = new Vector3(position.x, 4.4f, position.z);
         else if (position.y < -4.4f)
             transform.position = new Vector3(position.x, -4.4f, position.z);
+    }
+
+    public float GetVelocityY()
+    {
+        return rb.linearVelocityY;
     }
 }
