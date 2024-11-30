@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -41,7 +42,7 @@ public class Movement : MonoBehaviour
         jumpTimer = Mathf.Clamp(jumpTimer - Time.deltaTime, 0, jumpCollideWindowSec);
         coyoteTimer = Mathf.Clamp(coyoteTimer - Time.deltaTime, 0, coyoteBaseTime);
 
-        Debug.Log(coyoteTimer);
+        //Debug.Log(coyoteTimer);
 
         HandleMovement(); 
         Jump();
@@ -119,4 +120,6 @@ public class Movement : MonoBehaviour
         else
             return false;
     }
+
+
 }
