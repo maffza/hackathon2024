@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2caa71176b303dac0b11eea3f180c462
+guid: ec0ece609811e8d44a30545413a4ad8c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1248187164165603951
-    second: Flask_0
+      213: -3463682999912435415
+    second: Platform 2x0-5 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,16 +96,29 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Flask_0
+      name: Platform 2x0-5 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
+        width: 64
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19df4ba236c8daee0800000000000000
-      internalID: -1248187164165603951
+      spriteID: 921f8a7b9a68eefc0800000000000000
+      internalID: -3463682999912435415
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Flask_0: -1248187164165603951
+      PlatformRightTop_0: 5127497530171165646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
