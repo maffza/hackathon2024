@@ -14,33 +14,26 @@ public class PlayerPositionTracker : MonoBehaviour
         timeInCurrentPosition = 0f;
     }
 
-    void Update()
-    {
+    void Update() {
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
 
-        if (currentPosition != lastPosition)
-        {
-            if (positions.Count == 0 || positions[positions.Count - 1].position != lastPosition)
-            {
-                if (timeInCurrentPosition > 0f)
-                {
+        // Jeœli gracz siê poruszy³, zapisz now¹ pozycjê
+        if (currentPosition != lastPosition) {
+            if (positions.Count == 0 || positions[positions.Count - 1].position != lastPosition) {
+                if (timeInCurrentPosition > 0f) {
                     positions.Add((lastPosition, timeInCurrentPosition));
                 }
             }
 
             lastPosition = currentPosition;
             timeInCurrentPosition = 0f;
-
-        }
-        else
-        {
+        } else {
+            // Jeœli gracz pozostaje w tej samej pozycji
             timeInCurrentPosition += Time.deltaTime;
         }
 
-        // Tak pobieramy dane o pozycjach
-        //var testPrp = GetLastPosition();
-        //Debug.Log(getPositionsListCount() + $" Last Position: {testPrp.position}, Duration: {testPrp.duration} seconds");
-
+        // Zapisuj ka¿d¹ zmianê co klatkê 
+        positions.Add((currentPosition, Time.deltaTime));
     }
 
     public (Vector2 position, float duration) GetLastPosition()

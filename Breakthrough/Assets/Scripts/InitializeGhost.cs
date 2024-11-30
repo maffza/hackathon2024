@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReplayPlayerMovement : MonoBehaviour {
+public class InitializeGhost : MonoBehaviour {
+
     public PlayerPositionTracker positionTracker;
     public GameObject ghostPrefab;
     public float averageSpeed = 5f;
