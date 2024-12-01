@@ -36,7 +36,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
     private void RespawnPlayer() {
         transform.position = startingPosition;
-        Debug.Log("Gracz zosta³ przeniesiony na pocz¹tek mapy.");
+        Debug.Log("Gracz zostaï¿½ przeniesiony na poczï¿½tek mapy.");
     }
 
     private void StartGhostReplay() {
@@ -61,11 +61,11 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
             List<Vector2> path = ghostPaths[i];
             if (path == null || path.Count == 0) {
-                // Duch zakonczy³ trase
+                // Duch zakonczyï¿½ trase
                 CheckCollisionGhost ccg = ghost.GetComponent<CheckCollisionGhost>();
                 if (ccg != null && !ccg.iAmCollider) {
                     ccg.iAmCollider = true; 
-                    Debug.Log($"Duch {i} zakoñczy³ trasê. Kolizje aktywne.");
+                    Debug.Log($"Duch {i} zakoï¿½czyï¿½ trasï¿½. Kolizje aktywne.");
                 }
                 continue;
             }
