@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering.Universal;  // Przestrzeń nazw dla Post-Processing w URP
 using System.Collections;
 
 public class ScreenBlinkEffect : MonoBehaviour
@@ -8,6 +8,8 @@ public class ScreenBlinkEffect : MonoBehaviour
     public Volume volume;
     private Vignette vignette;
     private bool isBlinking = false;
+
+    public float duration = 1f;
 
     void Start()
     {
@@ -17,22 +19,37 @@ public class ScreenBlinkEffect : MonoBehaviour
         }
     }
 
-    public void TriggerBlink()
+    public void CloseEye()
     {
         if (!isBlinking)
         {
-            StartCoroutine(BlinkEffect());
+            StartCoroutine(LerpVignette(1f));
         }
     }
 
-    private IEnumerator BlinkEffect()
+    public void OpenEye()
+    {
+        if (!isBlinking)
+        {
+            StartCoroutine(LerpVignette(0f));
+        }
+    }
+
+    private IEnumerator LerpVignette(float targetIntensity)
     {
         isBlinking = true;
 
-        vignette.intensity.value = 0.5f;
-        yield return new WaitForSeconds(0.5f);
+        float startIntensity = vignette.intensity.value;
+        float elapsedTime = 0f;
 
-        vignette.intensity.value = 0f;
+        while (elapsedTime < duration)
+        {
+            vignette.intensity.value = Mathf.Lerp(startIntensity, targetIntensity, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        vignette.intensity.value = targetIntensity;
         isBlinking = false;
     }
 }
