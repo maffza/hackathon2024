@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReplayPlayerMovement : MonoBehaviour {
     public GameObject ghostPrefab;
     public float averageSpeed = 15f;
-
+    private GameObject spawnPoint;
     public Vector3 startingPosition = Vector3.zero;
 
     private List<List<Vector2>> ghostPaths = new List<List<Vector2>>();
@@ -15,7 +15,17 @@ public class ReplayPlayerMovement : MonoBehaviour {
     private Vector2 currentVelocity;
 
     private bool canPressKillButton = true;
+    private bool ghostFinishPath = false;
 
+    void Start () {
+        spawnPoint = GameObject.Find("SpawnPoint");
+        if (spawnPoint == null)
+        {
+            Debug.LogError("Spawn point not found");
+        }
+        
+    }
+    
     void Update() {
 
         if (!isReplaying && (currentPath.Count == 0 || currentPath[currentPath.Count - 1] != (Vector2)transform.position)) {
@@ -33,6 +43,19 @@ public class ReplayPlayerMovement : MonoBehaviour {
         }
 
         UpdateGhosts();
+    }
+
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.CompareTag("Spawner")) {
+            canPressKillButton = false;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.CompareTag("Spawner")) {
+            if (!ghostFinishPath)
+                canPressKillButton = true;
+        }
     }
 
     public void KillPlayer() {
@@ -73,6 +96,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
                     ccg.iAmCollider = true; 
                     Debug.Log($"Duch {i} zako�czy� tras�. Kolizje aktywne.");
                     canPressKillButton = true;
+                    ghostFinishPath = true;
                 }
                 continue;
             }
