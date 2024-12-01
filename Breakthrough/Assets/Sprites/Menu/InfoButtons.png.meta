@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4372743898705e949badff09d6961bab
+guid: d8c7d322093c26f489b82bdabaa51e3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7153099074514317613
-    second: OptionButton_0
+      213: -6153122391977279002
+    second: InfoButtons_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OptionButton_0
+      name: InfoButtons_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
+        width: 224
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,19 +115,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3de066c5a461bbc90800000000000000
-      internalID: -7153099074514317613
+      spriteID: 6e141bef8c7bb9aa0800000000000000
+      internalID: -6153122391977279002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OptionButton_1
+      name: InfoButtons_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 224
         y: 0
-        width: 320
+        width: 224
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e9982efd53b9f74182cb7f6fd8033f1
-      internalID: -233710981
+      spriteID: 4debeb92bd832414d99de801fa3d2785
+      internalID: -1993763687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OptionButton_2
+      name: InfoButtons_2
       rect:
         serializedVersion: 2
-        x: 640
+        x: 448
         y: 0
-        width: 320
+        width: 224
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -159,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 396326761cf90c74298d735e16a91d7f
-      internalID: 1282894685
+      spriteID: 50942d7091b4591439477e9762ad83df
+      internalID: 1934374089
       vertices: []
       indices: 
       edges: []
@@ -169,7 +169,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a2ee3d4cdad8f4242aca56259a3a8fd7
+    spriteID: 472825c034c0adf44aab432ce38b0703
     internalID: 0
     vertices: []
     indices: 
@@ -179,9 +179,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OptionButton_0: -7153099074514317613
-      OptionButton_1: -233710981
-      OptionButton_2: 1282894685
+      InfoButtons_0: -6153122391977279002
+      InfoButtons_1: -1993763687
+      InfoButtons_2: 1934374089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
