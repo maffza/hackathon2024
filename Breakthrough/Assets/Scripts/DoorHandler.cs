@@ -62,6 +62,18 @@ public class DoorHandler : MonoBehaviour
         }
     }
     
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (isOpen)
+            {
+                //gameManager.GetComponent<AudioPlayer>().PlaySound(2); // TODO: to sie nie wykona
+                gameManager.GetComponent<GameManager>().LoadNextLevel();
+            }
+        }
+    }
+    
     public void OpenDoor()
     {
         // Animation handler
