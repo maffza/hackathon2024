@@ -31,7 +31,7 @@ Gra została stworzona przez czteroosobowy zespół:
 
 ## Zrzuty ekranu
 ![przykładowy poziom](screenshots/Screenshot1.png)
-![przykładowy poziom](screenshots/Screenshot2.png)
 ![przykładowy poziom](screenshots/Screenshot3.png)
+![przykładowy poziom](screenshots/Screenshot2.png)
 ## Licencja
 Projekt został stworzony na potrzeby Bitfestival Hackathon 2024 i jest dostępny jako open-source wyłącznie w celach edukacyjnych i niekomercyjnych.
