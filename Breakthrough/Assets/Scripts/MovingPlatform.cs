@@ -40,6 +40,8 @@ public class MovingPlatform : MonoBehaviour
             float t = Mathf.Clamp01(elapsedTime / moveTimeSec);
             Vector2 currentPosition = Vector2.Lerp(startPos, endPos, t);
             transform.position = currentPosition;
+            sprRenderer.sprite = onSprite;
+
         }
         else if (!isOn && elapsedTime > 0)
         {
@@ -47,6 +49,7 @@ public class MovingPlatform : MonoBehaviour
             float t = Mathf.Clamp01((moveTimeSec - elapsedTime) / moveTimeSec);
             Vector2 currentPosition = Vector2.Lerp(endPos, startPos, t);
             transform.position = currentPosition;
+            sprRenderer.sprite = offSprite;
         }
     }
 
