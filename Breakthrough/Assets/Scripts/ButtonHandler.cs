@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class ButtonHandler : MonoBehaviour
@@ -17,6 +20,9 @@ public class ButtonHandler : MonoBehaviour
     private Sprite onSprite;
 
     private SpriteRenderer sprRenderer;
+
+    [SerializeField]
+    private List<MovingPlatform> platforms = new();
 
 
     void Start()
@@ -63,6 +69,11 @@ public class ButtonHandler : MonoBehaviour
             {
                 doorHandler.OpenDoor();
             }
+
+            foreach (MovingPlatform platform in platforms)
+            {
+                platform.isOn = true;
+            }
         }
 
         sprRenderer.sprite = onSprite;
@@ -78,6 +89,11 @@ public class ButtonHandler : MonoBehaviour
             if (door && doorHandler != null)
             {
                 doorHandler.CloseDoor();
+            }
+
+            foreach (MovingPlatform platform in platforms)
+            {
+                platform.isOn = false;
             }
         }
 
