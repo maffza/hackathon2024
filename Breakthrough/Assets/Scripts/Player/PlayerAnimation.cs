@@ -28,7 +28,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        if(ghost.killTimer > 1.9f)
+        if(ghost.killTimer > 1.9f && ghost.isDying)
             PlayAnim("Death");
 
         if (ghost.killTimer <= 0)

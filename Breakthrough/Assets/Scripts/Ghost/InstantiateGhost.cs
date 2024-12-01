@@ -25,6 +25,8 @@ public class ReplayPlayerMovement : MonoBehaviour {
     public float killTimer { get; private set; } = 0f;
     private bool killPlayer = false;
 
+    public bool isDying { get; private set; } = false;
+
     void Start () {
         spawnPoint = GameObject.Find("SpawnPoint");
         if (spawnPoint == null)
@@ -49,6 +51,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
                 killTimer = killTime;
                 killPlayer = true;
+                isDying = true;
 
                 audioPlayer.PlaySound(3);
                 canPressKillButton = false;
@@ -59,6 +62,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
         if(killPlayer && killTimer <= 0)
         {
+            isDying = false;
             killPlayer = false;
             KillPlayer();
         }
