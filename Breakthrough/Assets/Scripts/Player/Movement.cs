@@ -1,6 +1,5 @@
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
@@ -31,8 +30,6 @@ public class Movement : MonoBehaviour
     public float HorizontalInputData { get; private set; } = 0f;
     public bool OnGround { get; private set; } = false;
 
-    private PlayerAudio audioScript;
-
 
     void Start()
     {
@@ -42,9 +39,6 @@ public class Movement : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D is missing on this object.");
         }
-
-        GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
-        audioScript = gameManager.GetComponent<PlayerAudio>();
     }
 
     void FixedUpdate()
@@ -91,11 +85,6 @@ public class Movement : MonoBehaviour
 
         Vector2 movement = speed * Time.deltaTime * new Vector2(horizontalInput, 0).normalized;
         transform.Translate(movement);
-
-        if (horizontalInput != 0 && Mathf.Abs(rb.linearVelocityY) < 0.01f)
-        {
-            audioScript.PlaySound(0);
-        }
     }
 
     private void CheckInstantFall()
@@ -116,7 +105,6 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             coyoteTimer = 0;
             jumpCooldown = jumpCooldownTime;
-            audioScript.PlayJump();
         }
     }
 
