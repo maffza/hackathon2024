@@ -35,7 +35,8 @@ public class DoorHandler : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            gameManager.GetComponent<GameManager>().LoadNextLevel();
+            if (isOpen)
+                gameManager.GetComponent<GameManager>().LoadNextLevel();
         }
     }
 
