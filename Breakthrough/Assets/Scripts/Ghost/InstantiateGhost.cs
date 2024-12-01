@@ -24,6 +24,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.K)) {
             RespawnPlayer();
             StartGhostReplay();
+
         }
 
         UpdateGhosts();
@@ -45,6 +46,8 @@ public class ReplayPlayerMovement : MonoBehaviour {
             Vector2 spawnPosition = ghostPaths[ghostPaths.Count - 1][0];
             GameObject newGhost = Instantiate(ghostPrefab, spawnPosition, Quaternion.identity);
             ghosts.Add(newGhost);
+
+           
         }
     }
     private void UpdateGhosts() {
@@ -53,10 +56,18 @@ public class ReplayPlayerMovement : MonoBehaviour {
             if (ghost == null) continue;
 
             List<Vector2> path = ghostPaths[i];
-            if (path.Count == 0) continue;
+            if (path == null || path.Count == 0) {
+                // Duch zakonczy³ trase
+                CheckCollisionGhost ccg = ghost.GetComponent<CheckCollisionGhost>();
+                if (ccg != null && !ccg.iAmCollider) {
+                    ccg.iAmCollider = true; 
+                    Debug.Log($"Duch {i} zakoñczy³ trasê. Kolizje aktywne.");
+                }
+                continue;
+            }
 
             Vector2 currentPos = ghost.transform.position;
-            Vector2 targetPos = path[0];
+            Vector2 targetPos = path[0]; 
 
             if (Vector2.Distance(currentPos, targetPos) < 0.01f) {
                 path.RemoveAt(0);
@@ -73,4 +84,5 @@ public class ReplayPlayerMovement : MonoBehaviour {
             ghost.transform.position = new Vector3(interpolatedPosition.x, interpolatedPosition.y, ghost.transform.position.z);
         }
     }
+
 }
