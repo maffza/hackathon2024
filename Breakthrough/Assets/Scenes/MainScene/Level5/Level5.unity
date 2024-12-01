@@ -233,6 +233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -351,6 +355,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -856,6 +864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -912,6 +924,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1037,6 +1053,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1151,6 +1171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1207,6 +1231,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1347,6 +1375,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1408,6 +1440,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1522,6 +1558,14 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Offset.x
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1724,6 +1768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1780,6 +1828,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1952,6 +2004,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2009,6 +2065,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2065,6 +2125,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2367,6 +2431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2648,6 +2716,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2934,6 +3006,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3068,6 +3144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice
       objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3124,6 +3204,10 @@ PrefabInstance:
     - target: {fileID: 1805338927750428254, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
       propertyPath: m_Name
       value: Spice (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8193089634655122441, guid: b5f6fe8e19c25db1eb1f7aa1b40bc7ea, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
