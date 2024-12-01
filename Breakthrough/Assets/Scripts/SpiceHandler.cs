@@ -4,7 +4,9 @@ public class SpiceHandler : MonoBehaviour
 {
     private GameObject player;
     private ReplayPlayerMovement movementScript;
-    
+    private bool doOnce = true;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,7 +27,10 @@ public class SpiceHandler : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            if (doOnce) {
             movementScript.KillPlayer();
+            doOnce = false;
+            }
         }
     }
 }
