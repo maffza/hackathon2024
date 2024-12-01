@@ -32,6 +32,14 @@ public class GameManager : MonoBehaviour
         LoadLevel(levels[0]);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            restartLevel();
+        }   
+    }
+
     public void LoadLevel(string levelName)
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(levelName);
@@ -49,5 +57,10 @@ public class GameManager : MonoBehaviour
             Debug.Log("No more levels");
             // END GAME
         }
+    }
+
+    public void restartLevel()
+    {
+        LoadLevel(levels[actualLevel]);
     }
 }

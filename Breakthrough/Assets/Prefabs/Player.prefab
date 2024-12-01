@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 5
+  jumpForce: 6
   gravity: 2
   jumpCollideWindowSec: 0.2
   jumpCooldownTime: 0.2
