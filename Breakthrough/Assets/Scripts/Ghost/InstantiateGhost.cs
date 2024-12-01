@@ -16,6 +16,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
     private bool canPressKillButton = true;
     private bool ghostFinishPath = false;
+    private bool inStartZone = true;
 
     void Start () {
         spawnPoint = GameObject.Find("SpawnPoint");
@@ -34,7 +35,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.K)) {
-            if (canPressKillButton) {
+            if (canPressKillButton && !inStartZone) {
                 KillPlayer();
                 canPressKillButton = false;
             }
@@ -47,14 +48,13 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("Spawner")) {
-            canPressKillButton = false;
+            inStartZone = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Spawner")) {
-            if (!ghostFinishPath)
-                canPressKillButton = true;
+            inStartZone = false;
         }
     }
 
