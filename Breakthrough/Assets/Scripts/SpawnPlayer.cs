@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour
 {
-    
+    [SerializeField]
     private GameObject _playerPrefab;
 
     void Start()

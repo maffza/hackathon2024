@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     public float HorizontalInputData { get; private set; } = 0f;
     public bool OnGround { get; private set; } = false;
 
-
+    private AudioPlayer audioPlayer;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,6 +39,10 @@ public class Movement : MonoBehaviour
         {
             Debug.LogError("Rigidbody2D is missing on this object.");
         }
+
+        GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
+        audioPlayer = gameManager.GetComponent<AudioPlayer>();
+
     }
 
     void FixedUpdate()
@@ -85,6 +89,11 @@ public class Movement : MonoBehaviour
 
         Vector2 movement = speed * Time.deltaTime * new Vector2(horizontalInput, 0).normalized;
         transform.Translate(movement);
+
+        if (horizontalInput != 0 && Mathf.Abs(rb.linearVelocityY) < 0.01)
+        {
+            audioPlayer.PlaySoundIfNotPlaying(0);
+        }
     }
 
     private void CheckInstantFall()
@@ -105,6 +114,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             coyoteTimer = 0;
             jumpCooldown = jumpCooldownTime;
+            audioPlayer.PlaySound(1);
         }
     }
 
