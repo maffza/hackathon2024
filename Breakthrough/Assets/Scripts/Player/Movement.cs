@@ -26,6 +26,8 @@ public class Movement : MonoBehaviour
     private float coyoteBaseTime = 0.2f;
     private float coyoteTimer = 0f;
 
+
+    ReplayPlayerMovement ghost;
     //used for animation getter
     public float HorizontalInputData { get; private set; } = 0f;
     public bool OnGround { get; private set; } = false;
@@ -40,6 +42,9 @@ public class Movement : MonoBehaviour
             Debug.LogError("Rigidbody2D is missing on this object.");
         }
 
+        if (!TryGetComponent<ReplayPlayerMovement>(out ghost))
+            Debug.Log("Sprite renderer not set!", this);
+
         GameObject gameManager = GameObject.FindGameObjectWithTag("GameController");
         audioPlayer = gameManager.GetComponent<AudioPlayer>();
 
@@ -47,16 +52,19 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        jumpTimer = Mathf.Clamp(jumpTimer - Time.fixedDeltaTime, 0, jumpCollideWindowSec);
-        coyoteTimer = Mathf.Clamp(coyoteTimer - Time.fixedDeltaTime, 0, coyoteBaseTime);
-        jumpCooldown = Mathf.Clamp(jumpCooldown - Time.fixedDeltaTime, 0, jumpCooldownTime);
+        if (ghost.killTimer <= 0f)
+        {
+            jumpTimer = Mathf.Clamp(jumpTimer - Time.fixedDeltaTime, 0, jumpCollideWindowSec);
+            coyoteTimer = Mathf.Clamp(coyoteTimer - Time.fixedDeltaTime, 0, coyoteBaseTime);
+            jumpCooldown = Mathf.Clamp(jumpCooldown - Time.fixedDeltaTime, 0, jumpCooldownTime);
 
-        // Debug.Log(coyoteTimer);
+            // Debug.Log(coyoteTimer);
 
-        HandleMovement(); 
-        Jump();
-        CheckInstantFall();
-        ApplyBounds();
+            HandleMovement();
+            Jump();
+            CheckInstantFall();
+            ApplyBounds();
+        }
     }
 
     private void Update()
