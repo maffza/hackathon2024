@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ReplayPlayerMovement : MonoBehaviour {
     public GameObject ghostPrefab;
-    public float averageSpeed = 5f;
+    public float averageSpeed = 15f;
 
     public Vector3 startingPosition = Vector3.zero;
 
@@ -22,12 +22,16 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.K)) {
-            RespawnPlayer();
-            StartGhostReplay();
+            KillPlayer();
 
         }
 
         UpdateGhosts();
+    }
+
+    public void KillPlayer() {
+        RespawnPlayer();
+        StartGhostReplay();
     }
 
     private void RespawnPlayer() {
