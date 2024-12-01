@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4703534794603916376}
   - component: {fileID: 5341206133144551266}
+  - component: {fileID: 4733180077524159360}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,3 +49,20 @@ MonoBehaviour:
   - level1
   - level2
   - level3
+--- !u!114 &4733180077524159360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3925486986904247440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252770a254fe2a144b4873f62f570586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 142219969675455479444142730fd3d1, type: 3}
+  - {fileID: 8300000, guid: c56d779588e6a084daffc84f4b3d633c, type: 3}
+  - {fileID: 8300000, guid: ed55fbfe722235e41a773fdb42a3fd0b, type: 3}
+  - {fileID: 8300000, guid: d07e21f2c65ff9f4090d45f7962c7824, type: 3}
