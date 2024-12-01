@@ -30,8 +30,8 @@ Gra została stworzona przez czteroosobowy zespół:
    - Linux: Uruchom plik wykonywalny przez terminal (upewnij się, że plik ma odpowiednie uprawnienia).
 
 ## Zrzuty ekranu
-![przykładowy poziom](screenshots/Screenshot_from_2024-12-01_10-10-48.png)
-![przykładowy poziom](screenshots/Screenshot_from_2024-12-01_10-11-33.png)
-![przykładowy poziom](screenshots/Screenshot_from_2024-12-01_10-12-05.png)
+![przykładowy poziom](screenshots/Screenshot1)
+![przykładowy poziom](screenshots/Screenshot2)
+![przykładowy poziom](screenshots/Screenshot3)
 ## Licencja
 Projekt został stworzony na potrzeby Bitfestival Hackathon 2024 i jest dostępny jako open-source wyłącznie w celach edukacyjnych i niekomercyjnych.
