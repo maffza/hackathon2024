@@ -10,9 +10,21 @@ public class MenuManager : MonoBehaviour
     private static readonly int SlideInTrigger = Animator.StringToHash("isPanelVisible");
     private static readonly int SlideInOptions = Animator.StringToHash("ShowOptions");
 
+    [SerializeField] 
+    private GameObject gameManager;
+    private GameManager gamaManagerHandler;
+    
+    void Awake(){
+        gamaManagerHandler = gameManager.GetComponent<GameManager>();
+        if (gamaManagerHandler == null){
+            Debug.Log("gamaeManagernotgood");
+        }
+    }
+
     void Start()
     {
         panelAnimator.SetTrigger(SlideInTrigger);
+
     }
 
     void Update()
@@ -37,6 +49,6 @@ public class MenuManager : MonoBehaviour
 
     public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+       gamaManagerHandler.firstLevel(); 
     }
 }

@@ -3,6 +3,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] 
+    private bool mainMenu = true;  
+
+    [SerializeField] 
     private string[] levels;
     int actualLevel = 0;
     
@@ -29,7 +32,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Level list is empty");
             return;
         }
-        LoadLevel(levels[0]);
+
     }
 
     void Update()
@@ -38,6 +41,10 @@ public class GameManager : MonoBehaviour
         {
             restartLevel();
         }   
+    }
+    public void firstLevel(){
+        mainMenu = false;
+        LoadLevel(levels[0]);
     }
 
     public void LoadLevel(string levelName)
@@ -63,4 +70,6 @@ public class GameManager : MonoBehaviour
     {
         LoadLevel(levels[actualLevel]);
     }
+
+
 }
