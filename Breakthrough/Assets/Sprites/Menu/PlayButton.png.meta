@@ -105,7 +105,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 320
+        width: 224
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -125,9 +125,9 @@ TextureImporter:
       name: PlayButton_1
       rect:
         serializedVersion: 2
-        x: 320
+        x: 224
         y: 0
-        width: 320
+        width: 224
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1ca293ace9bec04c8b2bbd86f0ddb5a
-      internalID: -50376535
+      spriteID: edf25abc77b6b4f479a0a1dc528cb069
+      internalID: -217609913
       vertices: []
       indices: 
       edges: []
@@ -147,9 +147,9 @@ TextureImporter:
       name: PlayButton_2
       rect:
         serializedVersion: 2
-        x: 640
+        x: 448
         y: 0
-        width: 320
+        width: 224
         height: 73
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -159,8 +159,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6cdfb7c99114e5b48bac0edcd2855f25
-      internalID: 1229615962
+      spriteID: f90ef80a0eb62534d908861d795324bc
+      internalID: 1746812373
       vertices: []
       indices: 
       edges: []
@@ -169,7 +169,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b89203eaf6c97ed4cb59ecef57cf2ba0
+    spriteID: ae52145229282cd48bb92fbf0cb0315a
     internalID: 0
     vertices: []
     indices: 
@@ -180,8 +180,8 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       PlayButton_0: -1958676783162264248
-      PlayButton_1: -50376535
-      PlayButton_2: 1229615962
+      PlayButton_1: -217609913
+      PlayButton_2: 1746812373
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
