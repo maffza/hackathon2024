@@ -18,13 +18,18 @@ public class ReplayPlayerMovement : MonoBehaviour {
     private bool ghostFinishPath = false;
     private bool inStartZone = true;
 
+    private GameObject gameManager;
+    private AudioPlayer audioPlayer;
+
     void Start () {
         spawnPoint = GameObject.Find("SpawnPoint");
         if (spawnPoint == null)
         {
             Debug.LogError("Spawn point not found");
         }
-        
+
+        gameManager = GameObject.FindGameObjectWithTag("GameController");
+        audioPlayer = gameManager.GetComponent<AudioPlayer>();
     }
     
     void Update() {
@@ -37,6 +42,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.K)) {
             if (canPressKillButton && !inStartZone) {
                 KillPlayer();
+                audioPlayer.PlaySound(3);
                 canPressKillButton = false;
             }
             

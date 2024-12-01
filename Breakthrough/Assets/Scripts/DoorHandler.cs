@@ -61,7 +61,7 @@ public class DoorHandler : MonoBehaviour
                     screenBlinkEffect.CloseEye();
                     doOnceBlink = false;
                 }
-                gameManager.GetComponent<AudioPlayer>().PlaySound(3);
+                gameManager.GetComponent<AudioPlayer>().PlaySound(2);
                 StartCoroutine(ExecuteAfterDelay(2f)); // dwie sekundy opoznienia
             }
         }
