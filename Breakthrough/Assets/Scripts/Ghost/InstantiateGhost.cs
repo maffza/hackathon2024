@@ -21,6 +21,10 @@ public class ReplayPlayerMovement : MonoBehaviour {
     private GameObject gameManager;
     private AudioPlayer audioPlayer;
 
+    private float killTime = 2f;
+    public float killTimer { get; private set; } = 0f;
+    private bool killPlayer = false;
+
     void Start () {
         spawnPoint = GameObject.Find("SpawnPoint");
         if (spawnPoint == null)
@@ -33,6 +37,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
     }
     
     void Update() {
+        killTimer -= Time.deltaTime;
 
         if (!isReplaying && (currentPath.Count == 0 || currentPath[currentPath.Count - 1] != (Vector2)transform.position)) {
             currentPath.Add(transform.position);
@@ -41,12 +46,21 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.K)) {
             if (canPressKillButton && !inStartZone) {
-                KillPlayer();
+
+                killTimer = killTime;
+                killPlayer = true;
+
                 audioPlayer.PlaySound(3);
                 canPressKillButton = false;
             }
             
 
+        }
+
+        if(killPlayer && killTimer <= 0)
+        {
+            killPlayer = false;
+            KillPlayer();
         }
 
         UpdateGhosts();
