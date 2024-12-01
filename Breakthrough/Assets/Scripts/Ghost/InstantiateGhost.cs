@@ -4,31 +4,33 @@ using UnityEngine;
 
 public class ReplayPlayerMovement : MonoBehaviour {
     public GameObject ghostPrefab;
-    public float averageSpeed = 5f; 
+    public float averageSpeed = 5f;
+
+    public Vector3 startingPosition = Vector3.zero;
 
     private List<List<Vector2>> ghostPaths = new List<List<Vector2>>();
-    private List<GameObject> ghosts = new List<GameObject>(); 
-    private List<Vector2> currentPath = new List<Vector2>(); 
-    private bool isReplaying = false; 
-    private Vector2 currentVelocity; 
+    private List<GameObject> ghosts = new List<GameObject>();
+    private List<Vector2> currentPath = new List<Vector2>();
+    private bool isReplaying = false;
+    private Vector2 currentVelocity;
 
     void Update() {
-        
+
         if (!isReplaying && (currentPath.Count == 0 || currentPath[currentPath.Count - 1] != (Vector2)transform.position)) {
             currentPath.Add(transform.position);
         }
 
-       
+
         if (Input.GetKeyDown(KeyCode.K)) {
-            RespawnPlayer(); 
-            StartGhostReplay(); 
+            RespawnPlayer();
+            StartGhostReplay();
         }
 
         UpdateGhosts();
     }
 
     private void RespawnPlayer() {
-        transform.position = new Vector3(0, 0, transform.position.z);
+        transform.position = startingPosition;
         Debug.Log("Gracz zosta³ przeniesiony na pocz¹tek mapy.");
     }
 
@@ -36,7 +38,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
         if (currentPath.Count > 0) {
             List<Vector2> newPath = new List<Vector2>(currentPath);
             ghostPaths.Add(newPath);
-            currentPath.Clear(); 
+            currentPath.Clear();
         }
 
         if (ghostPaths.Count > 0) {

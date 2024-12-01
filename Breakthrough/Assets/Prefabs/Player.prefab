@@ -309,6 +309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostPrefab: {fileID: 8549483232201820381, guid: ad4e32e4fefa3d44586802f7ab9b29e4, type: 3}
+  spawner: {fileID: 0}
+  spawnPoint: {fileID: 0}
   averageSpeed: 5
 --- !u!114 &3521879047124915090
 MonoBehaviour:
