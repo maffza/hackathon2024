@@ -61,8 +61,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No more levels");
-            // END GAME
+            LoadLevel("MainMenu");
         }
     }
 

@@ -56,23 +56,12 @@ public class DoorHandler : MonoBehaviour
         {
             if (isOpen)
             {
-                if (doOnceBlink)
-                {
-                    screenBlinkEffect.CloseEye();
-                    doOnceBlink = false;
-                }
-                gameManager.GetComponent<AudioPlayer>().PlaySound(2);
-                StartCoroutine(ExecuteAfterDelay(2f)); // dwie sekundy opoznienia
+                //gameManager.GetComponent<AudioPlayer>().PlaySound(2); // TODO: to sie nie wykona
+                gameManager.GetComponent<GameManager>().LoadNextLevel();
             }
         }
     }
-
-    IEnumerator ExecuteAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay); 
-        gameManager.GetComponent<GameManager>().LoadNextLevel();
-    }
-
+    
     public void OpenDoor()
     {
         // Animation handler
