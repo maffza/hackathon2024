@@ -9,7 +9,7 @@ public class ScreenBlinkEffect : MonoBehaviour
     private Vignette vignette;
     private bool isBlinking = false;
 
-    public float duration = 1f;
+    public float duration = 2f;
 
     void Start()
     {

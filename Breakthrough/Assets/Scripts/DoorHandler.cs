@@ -1,4 +1,6 @@
-using UnityEngine;
+using System.Collections; // Ważne dla IEnumerator
+using UnityEngine; // Ważne dla MonoBehaviour i innych komponentów Unity
+
 
 public class DoorHandler : MonoBehaviour
 {
@@ -8,11 +10,28 @@ public class DoorHandler : MonoBehaviour
     [SerializeField]
     private bool isOpen = false;
 
+    private GameObject camera;
+    private ScreenBlinkEffect screenBlinkEffect;
+    private bool doOnceBlink = true;
+
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        camera = GameObject.Find("Main Camera");
+        if (camera == null)
+        {
+            Debug.LogError("Camera is missing.");
+        }
+        
+        screenBlinkEffect = camera.GetComponent<ScreenBlinkEffect>();
+        if (screenBlinkEffect == null)
+        {
+            Debug.LogError("ScreenBlinkEffect is missing.");
+        }
+
+
         gameManager = GameObject.Find("GameManager");
         if (gameManager == null)
         {
@@ -36,8 +55,22 @@ public class DoorHandler : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             if (isOpen)
-                gameManager.GetComponent<GameManager>().LoadNextLevel();
+            {
+                if (doOnceBlink)
+                {
+                    screenBlinkEffect.CloseEye();
+                    doOnceBlink = false;
+                }
+                
+                StartCoroutine(ExecuteAfterDelay(2f)); // dwie sekundy opoznienia
+            }
         }
+    }
+
+    IEnumerator ExecuteAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); 
+        gameManager.GetComponent<GameManager>().LoadNextLevel();
     }
 
     public void OpenDoor()
