@@ -936,8 +936,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -233710981, guid: 4372743898705e949badff09d6961bab, type: 3}
-    m_PressedSprite: {fileID: 1282894685, guid: 4372743898705e949badff09d6961bab, type: 3}
+    m_HighlightedSprite: {fileID: -1993763687, guid: d8c7d322093c26f489b82bdabaa51e3f, type: 3}
+    m_PressedSprite: {fileID: 1934374089, guid: d8c7d322093c26f489b82bdabaa51e3f, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7153099074514317613, guid: 4372743898705e949badff09d6961bab, type: 3}
+  m_Sprite: {fileID: -6153122391977279002, guid: d8c7d322093c26f489b82bdabaa51e3f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1374,8 +1374,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -50376535, guid: 1c722ee79ecadfa41832d49c806d2d86, type: 3}
-    m_PressedSprite: {fileID: 1229615962, guid: 1c722ee79ecadfa41832d49c806d2d86, type: 3}
+    m_HighlightedSprite: {fileID: -217609913, guid: 1c722ee79ecadfa41832d49c806d2d86, type: 3}
+    m_PressedSprite: {fileID: 1746812373, guid: 1c722ee79ecadfa41832d49c806d2d86, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -1506,8 +1506,8 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -927861133, guid: 21090ebb92d87a54eac409be3281aea5, type: 3}
-    m_PressedSprite: {fileID: 791965908, guid: 21090ebb92d87a54eac409be3281aea5, type: 3}
+    m_HighlightedSprite: {fileID: -1694684863, guid: 21090ebb92d87a54eac409be3281aea5, type: 3}
+    m_PressedSprite: {fileID: 2063559389, guid: 21090ebb92d87a54eac409be3281aea5, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
