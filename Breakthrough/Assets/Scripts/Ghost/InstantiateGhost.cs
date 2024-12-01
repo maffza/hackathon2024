@@ -14,6 +14,8 @@ public class ReplayPlayerMovement : MonoBehaviour {
     private bool isReplaying = false;
     private Vector2 currentVelocity;
 
+    private bool canPressKillButton = true;
+
     void Update() {
 
         if (!isReplaying && (currentPath.Count == 0 || currentPath[currentPath.Count - 1] != (Vector2)transform.position)) {
@@ -22,7 +24,11 @@ public class ReplayPlayerMovement : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.K)) {
-            KillPlayer();
+            if (canPressKillButton) {
+                KillPlayer();
+                canPressKillButton = false;
+            }
+            
 
         }
 
@@ -66,6 +72,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
                 if (ccg != null && !ccg.iAmCollider) {
                     ccg.iAmCollider = true; 
                     Debug.Log($"Duch {i} zako�czy� tras�. Kolizje aktywne.");
+                    canPressKillButton = true;
                 }
                 continue;
             }
@@ -82,7 +89,7 @@ public class ReplayPlayerMovement : MonoBehaviour {
                 currentPos,
                 targetPos,
                 ref currentVelocity,
-                averageSpeed * Time.deltaTime
+                averageSpeed * Time.deltaTime * 0.1f
             );
 
             ghost.transform.position = new Vector3(interpolatedPosition.x, interpolatedPosition.y, ghost.transform.position.z);
