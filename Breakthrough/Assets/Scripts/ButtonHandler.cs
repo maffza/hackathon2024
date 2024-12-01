@@ -11,8 +11,25 @@ public class ButtonHandler : MonoBehaviour
 
     private bool debug = false;
 
+    [SerializeField]
+    private Sprite offSprite;
+    [SerializeField]
+    private Sprite onSprite;
+
+    private SpriteRenderer sprRenderer;
+
+
     void Start()
     {
+
+        sprRenderer = GetComponent<SpriteRenderer>();
+        if (sprRenderer == null)
+        {
+            Debug.LogWarning("Renderer not set", this);
+        }
+
+
+
         if (targetGameObject == null)
         {
             Debug.LogError("Target GameObject is not assigned in the Inspector.");
@@ -31,6 +48,8 @@ public class ButtonHandler : MonoBehaviour
                 Debug.Log("DoorHandler component found.");
             }
         }
+
+        sprRenderer.sprite = offSprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,6 +64,8 @@ public class ButtonHandler : MonoBehaviour
                 doorHandler.OpenDoor();
             }
         }
+
+        sprRenderer.sprite = onSprite;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -59,5 +80,7 @@ public class ButtonHandler : MonoBehaviour
                 doorHandler.CloseDoor();
             }
         }
+
+        sprRenderer.sprite = offSprite;
     }
 }
