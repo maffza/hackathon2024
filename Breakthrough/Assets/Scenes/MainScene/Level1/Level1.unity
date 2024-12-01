@@ -1005,6 +1005,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5341206133144551266, guid: a69ada250b12182c1891ffb10d6044fc, type: 3}
+      propertyPath: mainMenu
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341206133144551266, guid: a69ada250b12182c1891ffb10d6044fc, type: 3}
       propertyPath: levels.Array.size
       value: 5
       objectReference: {fileID: 0}
